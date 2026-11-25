@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #101827;
+  --color-teal: #49e0d0;
+  --color-periwinkle: #7086ff;
+  --color-mist: #f5f7fa;
+}
+
+@layer components {
+  .button { @apply inline-flex items-center justify-center; }
+  .text-link { @apply inline-flex items-center; }
+}

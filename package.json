@@ -1,0 +1,1 @@
+{"private":true,"scripts":{"build:css":"tailwindcss -i tailwind.input.css -o static/css/tailwind.css --minify","minify:assets":"node scripts/minify-assets.cjs"},"devDependencies":{"@tailwindcss/cli":"4.3.0","tailwindcss":"4.3.0","terser":"^5.51.4"}}

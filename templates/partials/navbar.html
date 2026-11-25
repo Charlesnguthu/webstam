@@ -1,0 +1,5 @@
+<header class="site-header"><nav class="nav-wrap container" aria-label="Main navigation">
+  <a class="brand" href="{% url 'home' %}" aria-label="Webstam Technologies home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M4 8l6 20 8-13 8 13 6-20"/><path d="M11 8l7 11 7-11"/></svg></span><span class="brand-name">webstam<span>technologies</span></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu"><span class="sr-only">Open navigation</span><i></i><i></i></button>
+  <div class="nav-menu" id="primary-menu"><a href="{% url 'home' %}">Home</a><a href="{% url 'services' %}">Services</a><a href="{% url 'solutions' %}">Solutions</a><a href="{% url 'projects' %}">Our work</a><a href="{% url 'team' %}">Team</a><a href="{% url 'blog:index' %}">Blog</a><a href="{% url 'about' %}">About</a><a href="{% url 'contact:contact' %}">Contact</a><a class="button button-small" href="{% url 'contact:contact' %}">Start a project <span aria-hidden="true">↗</span></a></div>
+</nav></header>

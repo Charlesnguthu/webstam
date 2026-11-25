@@ -1,0 +1,27 @@
+{% load static seo_tags %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% firstof title company.name %}</title>
+  <meta name="description" content="{{ meta_description|default:company.positioning }}">
+  {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
+  {% if noindex %}<meta name="robots" content="noindex,follow">{% endif %}
+  <meta property="og:type" content="{{ og_type|default:'website' }}"><meta property="og:site_name" content="{{ company.name }}"><meta property="og:title" content="{% firstof title company.name %}"><meta property="og:description" content="{{ meta_description|default:company.positioning }}">{% if canonical_url %}<meta property="og:url" content="{{ canonical_url }}">{% endif %}<meta property="og:image" content="{% if member.profile_photo and canonical_url %}https://{{ company.domain }}{{ member.profile_photo.url }}{% else %}{{ share_image_url }}{% endif %}">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{% firstof title company.name %}"><meta name="twitter:description" content="{{ meta_description|default:company.positioning }}"><meta name="twitter:image" content="{{ share_image_url }}">
+  <script type="application/ld+json">{{ organization_jsonld }}</script><script type="application/ld+json">{{ website_jsonld }}</script>{% if breadcrumb_jsonld %}<script type="application/ld+json">{{ breadcrumb_jsonld }}</script>{% endif %}{% if service_jsonld %}<script type="application/ld+json">{{ service_jsonld|jsonld }}</script>{% endif %}{% if people_jsonld %}<script type="application/ld+json">{{ people_jsonld|jsonld }}</script>{% endif %}{% if profile_jsonld %}<script type="application/ld+json">{{ profile_jsonld|jsonld }}</script>{% endif %}
+  <meta name="theme-color" content="#101827"><link rel="icon" href="{% static 'images/favicon.svg' %}" type="image/svg+xml"><link rel="stylesheet" href="{% static 'css/tailwind.css' %}"><link rel="stylesheet" href="{% static 'css/site.css' %}"><link rel="stylesheet" href="{% static 'css/motion.css' %}">
+  <script defer src="{% static 'js/site.js' %}"></script><script defer src="{% static 'js/motion.js' %}"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="motion-progress" aria-hidden="true"><span></span></div>
+  <div class="brand-preloader" aria-hidden="true"><span class="preloader-mark"><svg viewBox="0 0 36 36"><path d="M4 8l6 20 8-13 8 13 6-20"/><path d="M11 8l7 11 7-11"/></svg></span><span class="preloader-name">WEBSTAM<span>TECHNOLOGIES</span></span><i></i></div>
+  {% include 'partials/navbar.html' %}
+  <main id="main">{% block content %}{% endblock %}</main>
+  {% include 'partials/footer.html' %}
+  {% if company.analytics_id %}<section class="analytics-consent" data-analytics-consent hidden aria-label="Analytics choice"><p>Allow optional Google Analytics to help us understand visits and improve the site? Enquiry details are never sent to analytics.</p><button type="button" data-analytics-choice="accept">Allow analytics</button><button type="button" data-analytics-choice="decline">Decline</button></section>{% endif %}
+  {% if company.analytics_id %}<script>window.webstamAnalyticsId = "{{ company.analytics_id|escapejs }}";{% if analytics_enquiry_success %}window.webstamEnquirySuccess = true;{% endif %}</script>{% endif %}
+  <button class="motion-control" type="button" data-motion-control aria-pressed="false" aria-label="Reduce decorative motion">Motion: <span>On</span></button>
+</body>
+</html>
+

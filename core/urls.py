@@ -1,0 +1,4 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [path("", views.home, name="home"), path("services/", views.page, {"slug": "services"}, name="services"), path("services/<slug:slug>/", views.service_detail, name="service-detail"), path("solutions/", views.page, {"slug": "solutions"}, name="solutions"), path("projects/", views.projects, name="projects"), path("projects/<slug:slug>/", views.project_detail, name="project-detail"), path("about/", views.about, name="about"), path("team/", views.team, name="team"), path("team/<slug:slug>/", views.team_profile, name="team-profile"), path("technologies/", views.page, {"slug": "technologies"}, name="technologies"), path("ai-automation/", views.page, {"slug": "ai-automation"}, name="ai-automation"), path("privacy/", views.privacy, name="privacy"), path("robots.txt", views.robots, name="robots")]
